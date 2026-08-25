@@ -115,11 +115,10 @@ Run all scripts including AWS integration. Deploy QuickSight dashboard from `qui
 ## Business Impact
 
 Industry research and Snowflake customer outcomes:
-- **Vietnam aquaculture & seafood sector growing rapidly** — [GSO Vietnam](https://www.gso.gov.vn/)
-- **AI improves outcomes 15-30%** — [McKinsey](https://www.mckinsey.com/)
-- **Vietnam FDI strong in this sector** — [MPI](https://www.mpi.gov.vn/)
-- **Real-time analytics reduces response 60-80%** — [Gartner](https://www.gartner.com/)
-
+- **Disease outbreaks cause $1B+ annual losses to Vietnam's shrimp industry — EMS/AHPND alone killed 30% of production in affected areas** — [FAO Fisheries](https://www.fao.org/fishery/en/topics/disease/en)
+- **Real-time water quality monitoring (pH, dissolved oxygen, salinity) reduces mortality 40-60% in intensive shrimp farms** — [World Aquaculture Society](https://www.was.org/articles)
+- **Vietnam targets 1,500 hectares of high-tech shrimp farming with RAS-IMTA systems by 2030** — [VASEP Production](https://vasep.com.vn/san-pham-xuat-khau/tom/nguyen-lieu/san-xuat)
+- **IoT sensor deployment in Mekong Delta aquaculture growing 50% annually — XaaS models reaching smallholders** — [CGIAR WorldFish](https://worldfishcenter.org/pages/vietnam)
 
 ## Key Demo Numbers
 
