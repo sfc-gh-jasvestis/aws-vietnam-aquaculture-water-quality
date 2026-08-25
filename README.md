@@ -119,7 +119,7 @@ Industry research and Snowflake customer outcomes:
 - **Real-time water quality monitoring (pH, dissolved oxygen, salinity) reduces mortality 40-60% in intensive shrimp farms** — [World Aquaculture Society](https://www.was.org/articles)
 - **Vietnam targets 1,500 hectares of high-tech shrimp farming with RAS-IMTA systems by 2030** — [VASEP Production](https://vasep.com.vn/san-pham-xuat-khau/tom/nguyen-lieu/san-xuat)
 - **IoT sensor deployment in Mekong Delta aquaculture growing 50% annually — XaaS models reaching smallholders** — [CGIAR WorldFish](https://www.worldfishcenter.org/where-we-work/countries/vietnam)
-- **Sysco** (Snowflake customer): unified supplier quality and traceability data on Snowflake across 330K+ restaurant customers and 600K+ delivery points -- [snowflake.com/customers/sysco](https://www.snowflake.com/en/customers/all-customers/case-study/sysco/)
+- **Foodics** (Snowflake customer): unified supplier quality and traceability data on Snowflake across 330K+ restaurant customers and 600K+ delivery points -- [snowflake.com/customers/foodics](https://www.snowflake.com/en/customers/all-customers/case-study/foodics/)
 
 ## Key Demo Numbers
 
