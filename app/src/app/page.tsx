@@ -35,36 +35,36 @@ export default function HomePage() {
   const executiveCockpit = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KPICard title="Total Harvest" value="₫2.4B" status="neutral" />
-        <KPICard title="Water Quality" value="7" status="warning" />
-        <KPICard title="Anomalies Detected" value="3" status="danger" />
-        <KPICard title="Active Farms" value="124" status="neutral" />
+        <KPICard title="Water Quality Index" value="7.4/10" status="warning" />
+        <KPICard title="Dissolved Oxygen (Avg)" value="5.2 mg/L" status="neutral" />
+        <KPICard title="Disease Alerts" value="8" status="danger" />
+        <KPICard title="Ponds Monitored" value="14,200" status="neutral" />
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Chart
           data={data?.timeseries || [{ period: 'Loading', value: 0 }]}
           type="line"
           xKey="period"
-          yKeys={[{ key: 'value', name: 'Harvest' }]}
-          title="Harvest Trend (Weekly)"
+          yKeys={[{ key: 'value', name: 'WQI Score' }]}
+          title="Water Quality Trend (Daily)"
         />
         <Chart
           data={data?.categories || [{ category: 'Loading', count: 0 }]}
           type="bar"
           xKey="category"
           yKeys={[{ key: 'count', name: 'Count' }]}
-          title="Water Quality by Farm"
+          title="Alerts by Province"
         />
       </div>
       <DataTable
         columns={[
           { key: 'id', header: '#' },
-          { key: 'name', header: 'Farm' },
+          { key: 'name', header: 'Farm Zone' },
           { key: 'status', header: 'Status' },
-          { key: 'value', header: 'Harvest' },
+          { key: 'value', header: 'WQI Score' },
         ]}
         data={data?.entities || []}
-        title="Farm Performance"
+        title="Farm Water Quality Status"
       />
     </div>
   );
@@ -72,16 +72,16 @@ export default function HomePage() {
   const domainTab1 = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <KPICard title="Efficiency" value="87%" />
-        <KPICard title="Utilization" value="72%" />
-        <KPICard title="Growth Rate" value="+8.4%" />
+        <KPICard title="pH (Avg)" value="7.8" />
+        <KPICard title="Ammonia Level" value="0.04 mg/L" />
+        <KPICard title="Temperature" value="28.4°C" />
       </div>
       <Chart
         data={data?.detail || [{ x: 'Loading', y: 0 }]}
         type="area"
         xKey="x"
-        yKeys={[{ key: 'y', name: 'Index' }]}
-        title="Water Quality Performance Trend"
+        yKeys={[{ key: 'y', name: 'Value' }]}
+        title="Parameter Trends (24-hour)"
         height={400}
       />
     </div>
@@ -94,17 +94,17 @@ export default function HomePage() {
           data={data?.breakdown || [{ label: 'A', value: 30 }, { label: 'B', value: 70 }]}
           type="pie"
           xKey="label"
-          yKeys={[{ key: 'value', name: 'Score' }]}
-          title="Risk Distribution"
+          yKeys={[{ key: 'value', name: 'Risk %' }]}
+          title="Disease Outbreak Probability"
         />
         <ActionMemo
-          persona={{ name: 'Vietnam Operations Lead', role: 'Director of Water Quality' }}
+          persona={{ name: 'Dr. Pham Van Hoa', role: 'Aquatic Health Specialist' }}
           context={{}}
           onGenerate={async () => ({
             subject: 'Action Required',
             body: 'AI-generated recommendation based on current data patterns and predicted trends.',
             urgency: 'HIGH',
-            actions: ['Review top water quality findings', 'Optimize farm allocation', 'Prepare quarterly water quality report'],
+            actions: ['Alert Ben Tre Zone-3 farmers (DO dropping below 4 mg/L)', 'Deploy emergency aeration for Soc Trang shrimp ponds', 'Investigate EMS outbreak pattern in Ca Mau cluster'],
           })}
         />
       </div>
@@ -116,9 +116,9 @@ export default function HomePage() {
       <AskAI
         title="Ask AI"
         sampleQuestions={[
-          'Which farms have the highest water quality?',
-          'Show harvest trend for the last 30 days',
-          'What is the forecast for next quarter's harvest?',
+          'Which ponds have critical dissolved oxygen levels?',
+          'Show correlation between water quality and disease outbreaks',
+          'What is the predicted algal bloom risk for next week?',
         ]}
         mode="both"
         onSubmit={async (question, mode) => {
@@ -178,8 +178,8 @@ export default function HomePage() {
 
   const tabs = [
     { id: 'executive-cockpit', label: 'Executive Cockpit', icon: '📊', content: executiveCockpit },
-    { id: 'domain-1', label: 'Water Quality Analytics', icon: '📈', content: domainTab1 },
-    { id: 'domain-2', label: 'Alerts & Actions', icon: '⚡', content: domainTab2 },
+    { id: 'domain-1', label: 'Sensor Analytics', icon: '📈', content: domainTab1 },
+    { id: 'domain-2', label: 'Disease Risk', icon: '⚡', content: domainTab2 },
     { id: 'ask-ai', label: 'Ask AI', icon: '🤖', content: askAiTab },
     { id: 'architecture', label: 'Architecture & Data', icon: '🏗️', content: architectureTab },
   ];
