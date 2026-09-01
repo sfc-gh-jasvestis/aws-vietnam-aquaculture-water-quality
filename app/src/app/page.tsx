@@ -32,15 +32,23 @@ export default function HomePage() {
       .catch(() => {});
   }, []);
 
+
+  // Look up a KPI value returned by /api/data (sourced from CURATED.KPI_SUMMARY).
+  // Falls back to the original literal so the card still renders if the API,
+  // or KPI_SUMMARY, is unavailable.
+  const kpiVal = (title: string, fallback: string): string =>
+    (data?.kpiCards as { title: string; value: string }[] | undefined)
+      ?.find((k) => k.title === title)?.value ?? fallback;
+
   const title = narrative?.title || 'SEA AWS Demo';
 
   const executiveCockpit = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KPICard title="Water Quality Index" value="7.4/10" status="warning" />
-        <KPICard title="Dissolved Oxygen (Avg)" value="5.2 mg/L" status="neutral" />
-        <KPICard title="Disease Alerts" value="8" status="danger" />
-        <KPICard title="Ponds Monitored" value="14,200" status="neutral" />
+        <KPICard title="Water Quality Index" value={kpiVal('Water Quality Index', '7.4/10')} status="warning" />
+        <KPICard title="Dissolved Oxygen (Avg)" value={kpiVal('Dissolved Oxygen (Avg)', '5.2 mg/L')} status="neutral" />
+        <KPICard title="Disease Alerts" value={kpiVal('Disease Alerts', '8')} status="danger" />
+        <KPICard title="Ponds Monitored" value={kpiVal('Ponds Monitored', '14,200')} status="neutral" />
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="lg:col-span-1">
@@ -87,9 +95,9 @@ export default function HomePage() {
   const domainTab1 = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <KPICard title="pH (Avg)" value="7.8" />
-        <KPICard title="Ammonia Level" value="0.04 mg/L" />
-        <KPICard title="Temperature" value="28.4°C" />
+        <KPICard title="pH (Avg)" value={kpiVal('pH (Avg)', '7.8')} />
+        <KPICard title="Ammonia Level" value={kpiVal('Ammonia Level', '0.04 mg/L')} />
+        <KPICard title="Temperature" value={kpiVal('Temperature', '28.4°C')} />
       </div>
       <Chart
         data={data?.detail || [{ x: 'Mon', y: 24 }, { x: 'Tue', y: 28 }, { x: 'Wed', y: 22 }, { x: 'Thu', y: 31 }, { x: 'Fri', y: 26 }, { x: 'Sat', y: 19 }, { x: 'Sun', y: 23 }]}
