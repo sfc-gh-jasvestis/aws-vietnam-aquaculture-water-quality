@@ -21,8 +21,8 @@ Snowflake delivers water quality monitoring intelligence for Vietnamese aquacult
 | Database | `VIETNAM_AQUACULTURE_WATER_QUALITY` |
 | Service | `VIETNAM_AQUACULTURE_WATER_QUALITY_APP` |
 | Compute pool | `SEA_DEMOS_VIETNAM_POOL` |
-| Dimension table | `RAW.DOCUMENTS` (20 rows) |
-| Fact table | `RAW.METRICS` (250,000 rows, 90 days) |
+| Dimension table | `RAW.PONDS` (20 rows) |
+| Fact table | `RAW.SENSOR_READINGS` (250,000 rows, 90 days) |
 | Curated layer | `CURATED.PERFORMANCE_SUMMARY`, `CURATED.TREND_ANALYSIS`, `CURATED.KPI_SUMMARY` |
 | Currency | VND (₫) |
 
@@ -44,8 +44,8 @@ original literal as a fallback, so it still renders if Snowflake is unreachable.
 |---|---|---|
 | Water Quality Index | `7.4/10` | average per event |
 | Dissolved Oxygen (Avg) | `5.2 mg/L` | average per event |
-| Disease Alerts | `8` | total across Documents |
-| Ponds Monitored | `14,200` | total across Documents |
+| Disease Alerts | `8` | total across Ponds |
+| Ponds Monitored | `14,200` | total across Ponds |
 | pH (Avg) | `7.8` | average per event |
 | Ammonia Level | `0.04 mg/L` | average per event |
 | Temperature | `28.4°C` | average per event |
