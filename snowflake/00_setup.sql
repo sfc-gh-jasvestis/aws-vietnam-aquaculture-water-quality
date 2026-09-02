@@ -1,16 +1,13 @@
--- ============================================================================
--- Water Quality Monitoring
--- Water Quality Monitoring for Vietnam - ML.FORECAST and Dynamic Tables power real-time water quality monitoring intelligence for aquaculture & seafood in Can Tho & Ca Mau.
--- ============================================================================
-USE ROLE ACCOUNTADMIN;
-CREATE DATABASE IF NOT EXISTS AQUACULTURE_WATER;
-CREATE WAREHOUSE IF NOT EXISTS AQUACULTURE_WH WAREHOUSE_SIZE = 'MEDIUM' AUTO_SUSPEND = 120 AUTO_RESUME = TRUE;
-USE DATABASE AQUACULTURE_WATER;
-CREATE SCHEMA IF NOT EXISTS RAW;
-CREATE SCHEMA IF NOT EXISTS CURATED;
-CREATE SCHEMA IF NOT EXISTS ML;
-CREATE SCHEMA IF NOT EXISTS AI;
-CREATE SCHEMA IF NOT EXISTS SEARCH;
-CREATE SCHEMA IF NOT EXISTS APP;
+-- Generated from generator/demo_specs/aws-vietnam-aquaculture-water-quality.json
+-- Regenerate with: python3 generator/gen_repo_docs.py aws-vietnam-aquaculture-water-quality
+-- This is the schema that is actually deployed for VIETNAM_AQUACULTURE_WATER_QUALITY.
 
-USE WAREHOUSE AQUACULTURE_WH;
+-- VIETNAM_AQUACULTURE_WATER_QUALITY  (Water Quality Monitoring)
+-- generated from generator/demo_specs/aws-vietnam-aquaculture-water-quality.json - do not hand-edit
+CREATE DATABASE IF NOT EXISTS VIETNAM_AQUACULTURE_WATER_QUALITY;
+CREATE SCHEMA IF NOT EXISTS VIETNAM_AQUACULTURE_WATER_QUALITY.RAW;
+CREATE SCHEMA IF NOT EXISTS VIETNAM_AQUACULTURE_WATER_QUALITY.CURATED;
+CREATE SCHEMA IF NOT EXISTS VIETNAM_AQUACULTURE_WATER_QUALITY.APP;
+USE DATABASE VIETNAM_AQUACULTURE_WATER_QUALITY;
+
+-- 5 real regions; entity names carry their region so the two always agree
