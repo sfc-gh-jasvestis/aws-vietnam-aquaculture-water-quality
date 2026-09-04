@@ -54,6 +54,7 @@ export default function HomePage() {
         <div className="lg:col-span-1">
           <GeoMap
             country="vietnam"
+            regions={data?.regions}
             markers={[{"label": "Ca Mau", "value": "WQI: 6.2 ALERT", "color": "red", "size": "lg"}, {"label": "Soc Trang", "value": "WQI: 7.8 OK", "color": "green", "size": "md"}, {"label": "Ben Tre", "value": "WQI: 7.1 Watch", "color": "amber", "size": "md"}, {"label": "Can Tho", "value": "WQI: 8.2 Good", "color": "green", "size": "md"}, {"label": "Bac Lieu", "value": "WQI: 6.8 Watch", "color": "amber", "size": "sm"}]}
             routes={[]}
             title="Geographic Overview"
