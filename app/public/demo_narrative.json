@@ -1,0 +1,76 @@
+{
+  "title": "Vietnam Aquaculture Water Quality Monitor",
+  "duration": "6 minutes",
+  "thesis": "Snowflake turns daily pond probe data from a fictional aquaculture group's Vietnam farms (intensive shrimp ponds, super-intensive shrimp raceways, pangasius ponds, shrimp hatcheries and recirculating nurseries) into in-band water quality KPIs, 7-day event-risk scores, ammonia anomalies and grounded AI answers, all on curated dynamic tables.",
+  "tabs": [
+    {
+      "id": "executive-cockpit",
+      "persona": { "name": "Nguyen Thi Thu Ha", "role": "Farm Operations Director (fictional)", "avatar": "" },
+      "talking_points": [
+        "In-band probe readings, water quality events, alarms per 1,000 parameter checks and probe readings for 30 farms across 6 Vietnam cities.",
+        "Every KPI is a numerator over a denominator in a curated dynamic table, so it traces back to farm-day rows and the probe readings behind them.",
+        "The out-of-band chart shows which event causes push the most readings outside the dissolved oxygen, pH, temperature, salinity or ammonia band."
+      ],
+      "show": ["KPI cards", "Daily in-band probe readings", "Out-of-band readings by event cause", "Farm table"],
+      "call_out": "One governed set of water quality KPIs, traceable to source rows",
+      "transition": { "next_tab": "predictive", "line": "Which farms are likely to have the next water quality event?" }
+    },
+    {
+      "id": "predictive",
+      "persona": { "name": "Le Minh Quan", "role": "Water Quality Lead (fictional)", "avatar": "" },
+      "talking_points": [
+        "Snowflake ML classification scores each farm's probability of a water quality event in the next 7 days.",
+        "The holdout line shows precision and recall on the most recent labelled days, against the base rate.",
+        "Anomaly detection flags total ammonia outliers per farm, and the forecast projects network-wide probe-reading volume for 14 days."
+      ],
+      "show": ["Holdout metrics", "Risk by farm", "Probe-reading volume forecast", "Ammonia anomalies"],
+      "call_out": "Honest, evaluated ML inside the data platform",
+      "transition": { "next_tab": "planning", "line": "How ready is the aeration behind those risks?" }
+    },
+    {
+      "id": "planning",
+      "persona": { "name": "Le Minh Quan", "role": "Water Quality Lead (fictional)", "avatar": "" },
+      "talking_points": [
+        "Aeration uptime and equipment readiness (paddlewheel aerators, air blowers, water pumps, backup generators and dissolved oxygen probes) frame the response capacity.",
+        "PM compliance against in-band probe readings by farm shows where maintenance discipline and water quality move together; it is an association, not proof of cause.",
+        "The action memo drafts three prioritised actions from the KPI, water quality event, cause and risk tables only."
+      ],
+      "show": ["Aeration uptime and readiness", "PM compliance vs in-band probe readings", "Action memo"],
+      "call_out": "Grounded draft actions, with a human in the loop",
+      "transition": { "next_tab": "live", "line": "What happens when a pond probe raises an ammonia alarm right now?" }
+    },
+    {
+      "id": "live",
+      "persona": { "name": "Le Minh Quan", "role": "Water Quality Lead (fictional)", "avatar": "" },
+      "talking_points": [
+        "Live pond probe readings (total ammonia in mg/L, aerator load) land in RAW.LIVE_TELEMETRY, from the simulator or from AWS IoT Core through Snowpipe.",
+        "The Snowflake alert logs ALARM readings with an SOP hint and the farm's current risk band, then emails the shift technician."
+      ],
+      "show": ["Messages loaded and lag", "Latest readings", "Alert log"],
+      "call_out": "From alarm to action in one platform",
+      "transition": { "next_tab": "ask-ai", "line": "Now ask the data directly." }
+    },
+    {
+      "id": "ask-ai",
+      "persona": { "name": "Nguyen Thi Thu Ha", "role": "Farm Operations Director (fictional)", "avatar": "" },
+      "talking_points": [
+        "The Cortex Agent uses Cortex Analyst over the semantic view for metrics, and Cortex Search over synthetic water quality SOPs.",
+        "Each answer shows the generated SQL and the SOPs it cited."
+      ],
+      "show": ["Ask a sample question", "Generated SQL", "SOP citations"],
+      "call_out": "Natural-language answers you can audit",
+      "transition": { "next_tab": "architecture", "line": "Here is how it is built." }
+    },
+    {
+      "id": "architecture",
+      "persona": { "name": "Nguyen Thi Thu Ha", "role": "Farm Operations Director (fictional)", "avatar": "" },
+      "talking_points": [
+        "Two builds share one core: Snowflake only, or AWS + Snowflake (IoT Core, Bedrock, QuickSight and Amazon Q).",
+        "Everything shown is synthetic demo data, rebuilt reproducibly from the repo."
+      ],
+      "show": ["Both architecture diagrams"],
+      "call_out": "One governed core, with an optional AWS edge",
+      "transition": { "next_tab": "", "line": "Questions?" }
+    }
+  ]
+}
